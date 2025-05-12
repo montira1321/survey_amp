@@ -1,5 +1,5 @@
-# Generate the complete HTML form with all questions for download
-html_complete = """<!DOCTYPE html>
+# Write the complete updated HTML file with full questionnaire and script
+html_full = """<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
@@ -78,15 +78,16 @@ html_complete = """<!DOCTYPE html>
 <body>
   <div class="container" id="formContainer">
     <h1>แบบประเมินการทดลองใช้อุปกรณ์หักหลอดแก้ว</h1>
+
+    <section>
+      <h2>วัตถุประสงค์</h2>
+      <p>1. แสดงความคิดเห็นต่ออุปกรณ์หักหลอดแก้ว</p>
+      <p>2. เพื่อประเมินผลการทดลองใช้อุปกรณ์หักหลอดแก้ว</p>
+    </section>
+
     <form id="surveyForm"
           action="https://script.google.com/macros/s/AKfycbw1X_Fi0ii8efHDcfBGH4iPEh3OR6Lru7KbR7rZulJ8XBlNZUz2wEeN_MofLFyZiZqZ/exec"
           method="POST">
-      
-      <section>
-        <h2>วัตถุประสงค์</h2>
-        <p>1. แสดงความคิดเห็นต่ออุปกรณ์หักหลอดแก้ว</p>
-        <p>2. เพื่อประเมินผลการทดลองใช้อุปกรณ์หักหลอดแก้ว</p>
-      </section>
       
       <section>
         <h2>ส่วนที่ 1: ข้อมูลทั่วไป</h2>
@@ -142,7 +143,7 @@ html_complete = """<!DOCTYPE html>
           </div>
         </div>
       </section>
-      
+
       <section>
         <h2>ส่วนที่ 2: ความคิดเห็นต่ออุปกรณ์</h2>
         <div class="question">
@@ -176,55 +177,87 @@ html_complete = """<!DOCTYPE html>
           </div>
         </div>
       </section>
-      
+
       <section>
-        <h2>ส่วนที่ 3: การใช้งานของอุปกรณ์</h2>"""
-# Append all 10 questions for section 3
-questions3 = [
-    ("entry.1455648899", "1. อุปกรณ์สามารถจับถือได้ถนัด กระชับมือ"),
-    ("entry.1389359336", "2. อุปกรณ์ใช้งานได้ง่ายและสะดวก"),
-    ("entry.1134163150", "3. อุปกรณ์ช่วยทำให้หักหลอดยาได้รวดเร็ว"),
-    ("entry.353891899",  "4. อุปกรณ์มีความปลอดภัยในการใช้งาน"),
-    ("entry.557137385",  "5. อุปกรณ์ทำจากวัสดุที่มีความคงทน"),
-    ("entry.531532209",  "6. อุปกรณ์สามารถใช้หักหลอดยาได้จริง"),
-    ("entry.1944322451", "7. ท่านมีความมั่นใจในการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว"),
-    ("entry.1249576756", "8. ท่านมีความกลัวการบาดเจ็บจากการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว"),
-    ("entry.2117076064", "9. ท่านมีความพึงพอใจในการใช้อุปกรณ์หักหลอดแก้ว"),
-    ("entry.1766983540", "10. ท่านมีความสนใจจะใช้อุปกรณ์หักหลอดแก้ว")
-]
-for name, text in questions3:
-    html_complete += f"""
+        <h2>ส่วนที่ 3: การใช้งานของอุปกรณ์</h2>
         <div class="question">
-          <p>{text}</p>
+          <p>1. อุปกรณ์สามารถจับถือได้ถนัด กระชับมือ</p>
           <div class="options">
-            <label><input type="radio" name="{name}" value="มากที่สุด" required> มากที่สุด</label>
-            <label><input type="radio" name="{name}" value="มาก"> มาก</label>
-            <label><input type="radio" name="{name}" value="ปานกลาง"> ปานกลาง</label>
-            <label><input type="radio" name="{name}" value="น้อย"> น้อย</label>
-            <label><input type="radio" name="{name}" value="น้อยที่สุด"> น้อยที่สุด</label>
+            <label><input type="radio" name="entry.1455648899" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1455648899" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1455648899" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1455648899" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1455648899" value="น้อยที่สุด"> น้อยที่สุด</label>
           </div>
-        </div>"""
-html_complete += """
-      </section>
-      <button type="submit">ส่งแบบประเมิน</button>
-    </form>
-  </div>
-  <script>
-    document.getElementById('surveyForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      fetch(this.action, { method: 'POST', body: new FormData(this) })
-        .then(() => {
-          document.getElementById('formContainer').innerHTML =
-            '<h1 style="text-align:center; padding:50px;">ส่งแบบฟอร์มสำเร็จ<br>ขอบคุณสำหรับการประเมิน!</h1>';
-        });
-    });
-  </script>
-</body>
-</html>"""
+        </div>
+        <div class="question">
+          <p>2. อุปกรณ์ใช้งานได้ง่ายและสะดวก</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1389359336" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1389359336" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1389359336" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1389359336" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1389359336" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>3. อุปกรณ์ช่วยทำให้หักหลอดยาได้รวดเร็ว</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1134163150" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1134163150" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1134163150" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1134163150" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1134163150" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>4. อุปกรณ์มีความปลอดภัยในการใช้งาน</p>
+          <div class="options">
+            <label><input type="radio" name="entry.353891899" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.353891899" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.353891899" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.353891899" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.353891899" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>5. อุปกรณ์ทำจากวัสดุที่มีความคงทน</p>
+          <div class="options">
+            <label><input type="radio" name="entry.557137385" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.557137385" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.557137385" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.557137385" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.557137385" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>6. อุปกรณ์สามารถใช้หักหลอดยาได้จริง</p>
+          <div class="options">
+            <label><input type="radio" name="entry.531532209" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.531532209" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.531532209" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.531532209" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.531532209" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>7. ท่านมีความมั่นใจในการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1944322451" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1944322451" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1944322451" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1944322451" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1944322451" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>8. ท่านมีความกลัวการบาดเจ็บจากการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1249576756" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1249576756" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1249576756" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1249576756" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1249576756" value="น้อยที่สุด"> น้อยที่สุด</label?
 
-# Write to file
-with open('/mnt/data/index.html', 'w', encoding='utf-8') as f:
-    f.write(html_complete)
 
-# Return path for download
-'/mnt/data/index.html'
+
