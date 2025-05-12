@@ -1,0 +1,230 @@
+# Generate the complete HTML form with all questions for download
+html_complete = """<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>แบบประเมินการทดลองใช้อุปกรณ์หักหลอดแก้ว</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #ECDAC3;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #FFF;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin: 0 -30px 20px;
+      padding: 20px;
+      background: linear-gradient(90deg, #F3E5AB, #F6D186);
+      color: #5A4E3A;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+    section {
+      margin-top: 20px;
+    }
+    section h2 {
+      color: #7B6D5C;
+      margin-bottom: 10px;
+      border-left: 4px solid #F6D186;
+      padding-left: 10px;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .question p {
+      margin: 0 0 5px;
+      font-weight: 600;
+    }
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .options label {
+      display: flex;
+      align-items: center;
+      background: #F5F1E8;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .options input {
+      margin-right: 8px;
+    }
+    button {
+      background: #C4A35A;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="formContainer">
+    <h1>แบบประเมินการทดลองใช้อุปกรณ์หักหลอดแก้ว</h1>
+    <form id="surveyForm"
+          action="https://script.google.com/macros/s/AKfycbw1X_Fi0ii8efHDcfBGH4iPEh3OR6Lru7KbR7rZulJ8XBlNZUz2wEeN_MofLFyZiZqZ/exec"
+          method="POST">
+      
+      <section>
+        <h2>วัตถุประสงค์</h2>
+        <p>1. แสดงความคิดเห็นต่ออุปกรณ์หักหลอดแก้ว</p>
+        <p>2. เพื่อประเมินผลการทดลองใช้อุปกรณ์หักหลอดแก้ว</p>
+      </section>
+      
+      <section>
+        <h2>ส่วนที่ 1: ข้อมูลทั่วไป</h2>
+        <div class="question">
+          <p>1. เพศ</p>
+          <div class="options">
+            <label><input type="radio" name="entry.820611462" value="ชาย" required> ชาย</label>
+            <label><input type="radio" name="entry.820611462" value="หญิง"> หญิง</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>2. อายุ</p>
+          <div class="options">
+            <label><input type="radio" name="entry.881605251" value="น้อยกว่า 25 ปี" required> น้อยกว่า 25 ปี</label>
+            <label><input type="radio" name="entry.881605251" value="25-35 ปี"> 25–35 ปี</label>
+            <label><input type="radio" name="entry.881605251" value="36-45 ปี"> 36–45 ปี</label>
+            <label><input type="radio" name="entry.881605251" value="มากกว่า 45 ปี"> มากกว่า 45 ปี</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>3. สถานะการทำงาน</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1047457542" value="พยาบาล" required> พยาบาล</label>
+            <label><input type="radio" name="entry.1047457542" value="นักศึกษาพยาบาล"> นักศึกษาพยาบาล</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>4. ประสบการณ์การทำงาน (กรณีพยาบาล)</p>
+          <div class="options">
+            <label><input type="radio" name="entry.2073164085" value="น้อยกว่า 1 ปี" required> น้อยกว่า 1 ปี</label>
+            <label><input type="radio" name="entry.2073164085" value="1-2 ปี"> 1–2 ปี</label>
+            <label><input type="radio" name="entry.2073164085" value="2-5 ปี"> 2–5 ปี</label>
+            <label><input type="radio" name="entry.2073164085" value="6-10 ปี"> 6–10 ปี</label>
+            <label><input type="radio" name="entry.2073164085" value="มากกว่า 10 ปี"> มากกว่า 10 ปี</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>5. ประสบการณ์การหักหลอดยา</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1215389930" value="ไม่เคย" required> ไม่เคย</label>
+            <label><input type="radio" name="entry.1215389930" value="น้อยกว่า 10 ครั้ง"> น้อยกว่า 10 ครั้ง</label>
+            <label><input type="radio" name="entry.1215389930" value="10-50 ครั้ง"> 10–50 ครั้ง</label>
+            <label><input type="radio" name="entry.1215389930" value="51-100 ครั้ง"> 51–100 ครั้ง</label>
+            <label><input type="radio" name="entry.1215389930" value="มากกว่า 100 ครั้ง"> มากกว่า 100 ครั้ง</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>6. ท่านหักหลอดยาบ่อยแค่ไหน</p>
+          <div class="options">
+            <label><input type="radio" name="entry.701361495" value="นาน ๆ ครั้ง" required> นาน ๆ ครั้ง</label>
+            <label><input type="radio" name="entry.701361495" value="บ่อยครั้ง"> บ่อยครั้ง</label>
+            <label><input type="radio" name="entry.701361495" value="เป็นประจำ"> เป็นประจำ</label>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <h2>ส่วนที่ 2: ความคิดเห็นต่ออุปกรณ์</h2>
+        <div class="question">
+          <p>1. อุปกรณ์มีรูปทรงเหมาะสม น่าใช้</p>
+          <div class="options">
+            <label><input type="radio" name="entry.1591481055" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.1591481055" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.1591481055" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.1591481055" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.1591481055" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>2. อุปกรณ์มีขนาดเหมาะสมกับการใช้งาน</p>
+          <div class="options">
+            <label><input type="radio" name="entry.668478059" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.668478059" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.668478059" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.668478059" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.668478059" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>3. วัสดุที่ใช้ในการผลิตอุปกรณ์มีความเหมาะสม</p>
+          <div class="options">
+            <label><input type="radio" name="entry.444391344" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="entry.444391344" value="มาก"> มาก</label>
+            <label><input type="radio" name="entry.444391344" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="entry.444391344" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="entry.444391344" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <h2>ส่วนที่ 3: การใช้งานของอุปกรณ์</h2>"""
+# Append all 10 questions for section 3
+questions3 = [
+    ("entry.1455648899", "1. อุปกรณ์สามารถจับถือได้ถนัด กระชับมือ"),
+    ("entry.1389359336", "2. อุปกรณ์ใช้งานได้ง่ายและสะดวก"),
+    ("entry.1134163150", "3. อุปกรณ์ช่วยทำให้หักหลอดยาได้รวดเร็ว"),
+    ("entry.353891899",  "4. อุปกรณ์มีความปลอดภัยในการใช้งาน"),
+    ("entry.557137385",  "5. อุปกรณ์ทำจากวัสดุที่มีความคงทน"),
+    ("entry.531532209",  "6. อุปกรณ์สามารถใช้หักหลอดยาได้จริง"),
+    ("entry.1944322451", "7. ท่านมีความมั่นใจในการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว"),
+    ("entry.1249576756", "8. ท่านมีความกลัวการบาดเจ็บจากการหักหลอดยาขณะใช้อุปกรณ์หักหลอดแก้ว"),
+    ("entry.2117076064", "9. ท่านมีความพึงพอใจในการใช้อุปกรณ์หักหลอดแก้ว"),
+    ("entry.1766983540", "10. ท่านมีความสนใจจะใช้อุปกรณ์หักหลอดแก้ว")
+]
+for name, text in questions3:
+    html_complete += f"""
+        <div class="question">
+          <p>{text}</p>
+          <div class="options">
+            <label><input type="radio" name="{name}" value="มากที่สุด" required> มากที่สุด</label>
+            <label><input type="radio" name="{name}" value="มาก"> มาก</label>
+            <label><input type="radio" name="{name}" value="ปานกลาง"> ปานกลาง</label>
+            <label><input type="radio" name="{name}" value="น้อย"> น้อย</label>
+            <label><input type="radio" name="{name}" value="น้อยที่สุด"> น้อยที่สุด</label>
+          </div>
+        </div>"""
+html_complete += """
+      </section>
+      <button type="submit">ส่งแบบประเมิน</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('surveyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch(this.action, { method: 'POST', body: new FormData(this) })
+        .then(() => {
+          document.getElementById('formContainer').innerHTML =
+            '<h1 style="text-align:center; padding:50px;">ส่งแบบฟอร์มสำเร็จ<br>ขอบคุณสำหรับการประเมิน!</h1>';
+        });
+    });
+  </script>
+</body>
+</html>"""
+
+# Write to file
+with open('/mnt/data/index.html', 'w', encoding='utf-8') as f:
+    f.write(html_complete)
+
+# Return path for download
+'/mnt/data/index.html'
