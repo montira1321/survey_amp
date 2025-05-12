@@ -168,18 +168,19 @@
           <label><input type="radio" name="entry.531532209" value="น้อย"> น้อย</label>
           <label><input type="radio" name="entry.531532209" value="น้อยที่สุด"> น้อยที่สุด</label>
         </div></div>
+ <button type="submit">ส่งแบบประเมิน</button>
+  </form>
+</div>
+
 <script>
   document.getElementById('surveyForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // ยกเลิกการรีเฟรชหน้า
-    // ส่งข้อมูลไปยัง Web App
-    fetch(this.action, {
-      method: 'POST',
-      body: new FormData(this)
-    }).finally(() => {
-      // แสดงข้อความขอบคุณแทนฟอร์ม
-      document.getElementById('formContainer').innerHTML =
-        '<h1 style="text-align:center; padding:50px;">ขอบคุณสำหรับการตอบแบบประเมิน</h1>';
-    });
+    e.preventDefault();
+    fetch(this.action, { method: 'POST', body: new FormData(this) })
+      .finally(() => {
+        document.getElementById('formContainer').innerHTML =
+          '<h1 style="text-align:center; padding:50px;">ขอบคุณสำหรับการตอบแบบประเมิน</h1>';
+      });
   });
 </script>
-
+</body>
+</html>
